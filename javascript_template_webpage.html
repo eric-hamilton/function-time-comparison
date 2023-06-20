@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Timechecker</title>
+</head>
+<body>
+  <div class="col">
+    <h1>JavaScript Timechecker</h1><br>
+    <a href="https://github.com/eric-hamilton/function-time-comparison" target="_blank">View on GitHub</a>
+    <br><br>
+    <button onclick="run()">Click to Test</button>
+    <br><br>
+    <textarea id="output" rows="15" cols="50" readonly></textarea>
+  </div>
+  <script>
+    function run() {
+      // User-defined function
+      function my_function() {
+        // Add your code here
+      }
+
+      // AI-generated function
+      function ai_function() {
+        // Add AI code here
+      }
+
+      const num_runs = 3; // Number of times to run each function
+
+      const my_times = [];
+      const ai_times = [];
+
+      let my_total_time = 0.0;
+      let ai_total_time = 0.0;
+
+      for (let i = 0; i < num_runs; i++) {
+        const my_timer = performance.now();
+        my_function(); // Add any required arguments here
+        const my_time = (performance.now() - my_timer) / 1000;
+
+        const ai_timer = performance.now();
+        ai_function(); // Add any required arguments here
+        const ai_time = (performance.now() - ai_timer) / 1000;
+
+        my_total_time += my_time;
+        ai_total_time += ai_time;
+        my_times.push(my_time);
+        ai_times.push(ai_time);
+      }
+
+      const output = document.getElementById("output");
+      output.value = "";
+      
+      output.value += "My average time: " + (my_total_time / num_runs).toFixed(10) + " seconds\n";
+      output.value += "AI average time: " + (ai_total_time / num_runs).toFixed(10) + " seconds\n\n";
+
+      output.value += "My execution times:\n";
+      my_times.forEach((my_time, i) => {
+        output.value += "Run " + (i + 1) + ": " + my_time.toFixed(10) + " seconds\n";
+      });
+
+      output.value += "\nAI execution times:\n";
+      ai_times.forEach((ai_time, i) => {
+        output.value += "Run " + (i + 1) + ": " + ai_time.toFixed(10) + " seconds\n";
+      });
+
+      if (my_total_time > ai_total_time) {
+        const time_factor = my_total_time / ai_total_time;
+        output.value += "AI is, on average, " + time_factor.toFixed(2) + " times faster.\n";
+      } else {
+        const time_factor = ai_total_time / my_total_time;
+        output.value += "Mine is, on average, " + time_factor.toFixed(2) + " times faster.\n";
+      }
+    }
+  </script>
+</body>
+</html>
