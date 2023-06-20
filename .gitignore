@@ -1,1 +1,13 @@
+# Tests
 tests/
+
+# Compiled files
+*.exe
+*.pdb
+*.class
+*.jar
+*.war
+*.dll
+*.so
+*.dylib
+*.obj
