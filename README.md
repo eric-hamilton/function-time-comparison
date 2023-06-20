@@ -21,6 +21,7 @@ Currently, there are templates for these languages:
 - Ruby
 - Go
 - TypeScript
+- GDScript
 
 Each template includes the to measure the execution time of two separate functions. The template will also print out individual and average execution times for each function.
 
