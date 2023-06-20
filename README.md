@@ -14,6 +14,7 @@ Currently, there are templates for these languages:
 - C#
 - JavaScript
 - Java
+- Lua
 - C++ (Version 11 and later)
 - C
 - Rust
