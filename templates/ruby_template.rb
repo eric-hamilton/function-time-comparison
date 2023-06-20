@@ -1,3 +1,10 @@
+=begin
+Template for comparing the speed of two functions - AI Time Checker
+Repo Link: https://github.com/eric-hamilton/ai-time-checker
+Created by Eric Hamilton
+GitHub: https://github.com/eric-hamilton
+=end
+
 def my_function
   # Add your function here
 end

@@ -1,3 +1,10 @@
+/*
+Template for comparing the speed of two functions - AI Time Checker
+Repo Link: https://github.com/eric-hamilton/ai-time-checker
+Created by Eric Hamilton
+GitHub: https://github.com/eric-hamilton
+*/
+
 // User-defined function
 function my_function() {
     // Add your own code here
