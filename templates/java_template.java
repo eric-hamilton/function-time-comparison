@@ -30,12 +30,12 @@ public class CompareTimes {
             long start = System.nanoTime();
             myFunction(); // Add any required arguments here
             long end = System.nanoTime();
-            double myTime = (end - start) / 1e9; // Convert to seconds
+            double myTime = (end - start) / 1e6; 
 
             start = System.nanoTime();
             aiFunction(); // Add any required arguments here
             end = System.nanoTime();
-            double aiTime = (end - start) / 1e9; // Convert to seconds
+            double aiTime = (end - start) / 1e6;
 
             myTotalTime += myTime;
             aiTotalTime += aiTime;
@@ -43,18 +43,18 @@ public class CompareTimes {
             aiTimes.add(aiTime);
         }
 
-        System.out.println("My average time: " + String.format("%.10f", myTotalTime / numRuns) + " seconds");
-        System.out.println("AI average time: " + String.format("%.10f", aiTotalTime / numRuns) + " seconds");
+        System.out.println("My average time: " + String.format("%.10f", myTotalTime / numRuns) + " milliseconds");
+        System.out.println("AI average time: " + String.format("%.10f", aiTotalTime / numRuns) + " milliseconds");
         System.out.println();
 
         System.out.println("My execution times:");
         for (int i = 0; i < myTimes.size(); i++) {
-            System.out.println("Run " + (i + 1) + ": " + String.format("%.10f", myTimes.get(i)) + " seconds");
+            System.out.println("Run " + (i + 1) + ": " + String.format("%.10f", myTimes.get(i)) + " milliseconds");
         }
 
         System.out.println("AI execution times:");
         for (int i = 0; i < aiTimes.size(); i++) {
-            System.out.println("Run " + (i + 1) + ": " + String.format("%.10f", aiTimes.get(i)) + " seconds");
+            System.out.println("Run " + (i + 1) + ": " + String.format("%.10f", aiTimes.get(i)) + " milliseconds");
         }
 
         if (myTotalTime > aiTotalTime) {
@@ -68,3 +68,4 @@ public class CompareTimes {
         System.console().readLine("Press Enter to exit");
     }
 }
+

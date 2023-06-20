@@ -6,7 +6,7 @@ GitHub: https://github.com/eric-hamilton
 */
 
 #include <iostream>
-#include <ctime>
+#include <chrono>
 #include <vector>
 
 void my_function()
@@ -31,15 +31,15 @@ int main()
 
     for (int i = 0; i < num_runs; ++i)
     {
-        std::clock_t my_start = std::clock();
+        auto my_start = std::chrono::high_resolution_clock::now();
         my_function(); // Add any required arguments here
-        std::clock_t my_end = std::clock();
-        double my_time = static_cast<double>(my_end - my_start) / CLOCKS_PER_SEC;
+        auto my_end = std::chrono::high_resolution_clock::now();
+        double my_time = std::chrono::duration<double, std::milli>(my_end - my_start).count();
 
-        std::clock_t ai_start = std::clock();
+        auto ai_start = std::chrono::high_resolution_clock::now();
         ai_function(); // Add any required arguments here
-        std::clock_t ai_end = std::clock();
-        double ai_time = static_cast<double>(ai_end - ai_start) / CLOCKS_PER_SEC;
+        auto ai_end = std::chrono::high_resolution_clock::now();
+        double ai_time = std::chrono::duration<double, std::milli>(ai_end - ai_start).count();
 
         my_total_time += my_time;
         ai_total_time += ai_time;
@@ -47,21 +47,21 @@ int main()
         ai_times.push_back(ai_time);
     }
 
-    std::cout << "My average time: " << std::fixed << (my_total_time / num_runs) << " seconds" << std::endl;
-    std::cout << "AI average time: " << std::fixed << (ai_total_time / num_runs) << " seconds" << std::endl;
+    std::cout << "My average time: " << std::fixed << (my_total_time / num_runs) << " milliseconds" << std::endl;
+    std::cout << "AI average time: " << std::fixed << (ai_total_time / num_runs) << " milliseconds" << std::endl;
     std::cout << "\n";
 
     std::cout << "My execution times:" << std::endl;
     for (int i = 0; i < my_times.size(); ++i)
     {
-        std::cout << "Run " << (i + 1) << ": " << std::fixed << my_times[i] << " seconds" << std::endl;
+        std::cout << "Run " << (i + 1) << ": " << std::fixed << my_times[i] << " milliseconds" << std::endl;
     }
     std::cout.flush();
 
     std::cout << "AI execution times:" << std::endl;
     for (int i = 0; i < ai_times.size(); ++i)
     {
-        std::cout << "Run " << (i + 1) << ": " << std::fixed << ai_times[i] << " seconds" << std::endl;
+        std::cout << "Run " << (i + 1) << ": " << std::fixed << ai_times[i] << " milliseconds" << std::endl;
     }
     std::cout.flush();
 

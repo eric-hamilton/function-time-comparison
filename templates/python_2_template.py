@@ -29,25 +29,25 @@ for _ in range(num_runs):
     my_timer = timeit.Timer(stmt=my_function)  # Add any required arguments here
     ai_timer = timeit.Timer(stmt=ai_function)  # Add any required arguments here
 
-    my_time = my_timer.timeit(number=1)
-    ai_time = ai_timer.timeit(number=1)
+    my_time = my_timer.timeit(number=1) * 1000
+    ai_time = ai_timer.timeit(number=1) * 1000 
 
     my_total_time += my_time
     ai_total_time += ai_time
     my_times.append(my_time)
     ai_times.append(ai_time)
 
-print "My average time:", "{:.10f}".format(my_total_time / num_runs), "seconds"
-print "AI average time:", "{:.10f}".format(ai_total_time / num_runs), "seconds"
+print "My average time:", "{:.10f}".format(my_total_time / num_runs), "milliseconds"
+print "AI average time:", "{:.10f}".format(ai_total_time / num_runs), "milliseconds"
 print "\n"
 
 print "My execution times:"
 for i, my_time in enumerate(my_times):
-    print "Run {}: {:.10f} seconds".format(i+1, my_time)
+    print "Run {}: {:.10f} milliseconds".format(i+1, my_time)
 
 print "AI execution times:"
 for i, ai_time in enumerate(ai_times):
-    print "Run {}: {:.10f} seconds".format(i+1, ai_time)
+    print "Run {}: {:.10f} milliseconds".format(i+1, ai_time)
 
 if my_total_time > ai_total_time:
     time_factor = my_total_time / ai_total_time

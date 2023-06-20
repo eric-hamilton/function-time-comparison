@@ -46,26 +46,29 @@ func main() {
 		aiTimes = append(aiTimes, aiTime)
 	}
 
-	fmt.Println("My average time:", myTotalTime/time.Duration(numRuns), "seconds")
-	fmt.Println("AI average time:", aiTotalTime/time.Duration(numRuns), "seconds")
+	myAvgTime := float64(myTotalTime) / float64(numRuns*time.Millisecond)
+	aiAvgTime := float64(aiTotalTime) / float64(numRuns*time.Millisecond)
+
+	fmt.Printf("My average time: %.10f milliseconds\n", myAvgTime)
+	fmt.Printf("AI average time: %.10f milliseconds\n", aiAvgTime)
 	fmt.Println()
 
 	fmt.Println("My execution times:")
 	for i, myTime := range myTimes {
-		fmt.Printf("Run %d: %s\n", i+1, myTime)
+		fmt.Printf("Run %d: %.10f milliseconds\n", i+1, float64(myTime)/float64(time.Millisecond))
 	}
 
 	fmt.Println("AI execution times:")
 	for i, aiTime := range aiTimes {
-		fmt.Printf("Run %d: %s\n", i+1, aiTime)
+		fmt.Printf("Run %d: %.10f milliseconds\n", i+1, float64(aiTime)/float64(time.Millisecond))
 	}
 
 	if myTotalTime > aiTotalTime {
 		timeFactor := float64(myTotalTime) / float64(aiTotalTime)
-		fmt.Printf("AI is, on average, %.2f times faster.\n", timeFactor)
+		fmt.Printf("AI is, on average, %.10f times faster.\n", timeFactor)
 	} else {
 		timeFactor := float64(aiTotalTime) / float64(myTotalTime)
-		fmt.Printf("Mine is, on average, %.2f times faster.\n", timeFactor)
+		fmt.Printf("Mine is, on average, %.10f times faster.\n", timeFactor)
 	}
 
 	fmt.Println("Press Enter to exit")

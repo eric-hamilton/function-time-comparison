@@ -42,8 +42,8 @@ class Program
             AiFunction(); // Add any required arguments here
             aiTimer.Stop();
 
-            double myTime = myTimer.Elapsed.TotalSeconds;
-            double aiTime = aiTimer.Elapsed.TotalSeconds;
+            double myTime = myTimer.Elapsed.TotalMilliseconds;
+            double aiTime = aiTimer.Elapsed.TotalMilliseconds;
 
             myTotalTime += myTime;
             aiTotalTime += aiTime;
@@ -51,20 +51,20 @@ class Program
             aiTimes[i] = aiTime;
         }
 
-        Console.WriteLine("My average time: {0:F10} seconds", myTotalTime / numRuns);
-        Console.WriteLine("AI average time: {0:F10} seconds", aiTotalTime / numRuns);
+        Console.WriteLine("My average time: {0:F10} milliseconds", myTotalTime / numRuns);
+        Console.WriteLine("AI average time: {0:F10} milliseconds", aiTotalTime / numRuns);
         Console.WriteLine();
 
         Console.WriteLine("My execution times:");
         for (int i = 0; i < numRuns; i++)
         {
-            Console.WriteLine("Run {0}: {1:F10} seconds", i + 1, myTimes[i]);
+            Console.WriteLine("Run {0}: {1:F10} milliseconds", i + 1, myTimes[i]);
         }
 
         Console.WriteLine("AI execution times:");
         for (int i = 0; i < numRuns; i++)
         {
-            Console.WriteLine("Run {0}: {1:F10} seconds", i + 1, aiTimes[i]);
+            Console.WriteLine("Run {0}: {1:F10} milliseconds", i + 1, aiTimes[i]);
         }
 
         if (myTotalTime > aiTotalTime)

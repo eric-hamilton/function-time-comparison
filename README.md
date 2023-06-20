@@ -14,20 +14,21 @@ Currently, there are templates for these languages:
 - C#
 - JavaScript
 - Java
-- C++
+- C++ (Version 11 and later)
 - C
 - Rust
 - Ruby
 - Go
 - TypeScript
 
-Each template includes the necessary code to measure the execution time of the user-defined function and the AI-generated function. By running the templates, you can obtain the average execution times and compare the performance of the two functions.
+Each template includes the to measure the execution time of two separate functions. The template will also print out individual and average execution times for each function.
 
 ## Usage
 
 1. Choose your language and copy the code within.
 2. Locate the `my_function` and `ai_function` sections in the code.
-4. Replace the placeholder code with your own implementation for each function.
+3. Replace the placeholder code with your own implementation for each function.
+4. Set how many times you want to run the test using the `num_runs` variable. (Default is 3).
 5. Save and run your code.
 6. Analyze the results to compare the performance of the two functions.
 7. Tell the robit to suck it!

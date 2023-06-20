@@ -37,8 +37,8 @@ fn main() {
         let ai_end_time = Instant::now();
         let ai_duration = ai_end_time.duration_since(ai_start_time);
 
-        let my_time = my_duration.as_secs_f64();
-        let ai_time = ai_duration.as_secs_f64();
+        let my_time = my_duration.as_secs_f64() * 1000.0;
+        let ai_time = ai_duration.as_secs_f64() * 1000.0;
 
         my_total_time += my_time;
         ai_total_time += ai_time;
@@ -46,18 +46,18 @@ fn main() {
         ai_times.push(ai_time);
     }
 
-    println!("My average time: {:.10} seconds", my_total_time / (num_runs as f64));
-    println!("AI average time: {:.10} seconds", ai_total_time / (num_runs as f64));
+    println!("My average time: {:.10} milliseconds", my_total_time / (num_runs as f64));
+    println!("AI average time: {:.10} milliseconds", ai_total_time / (num_runs as f64));
     println!();
 
     println!("My execution times:");
     for (i, my_time) in my_times.iter().enumerate() {
-        println!("Run {}: {:.10} seconds", i + 1, my_time);
+        println!("Run {}: {:.10} milliseconds", i + 1, my_time);
     }
 
     println!("AI execution times:");
     for (i, ai_time) in ai_times.iter().enumerate() {
-        println!("Run {}: {:.10} seconds", i + 1, ai_time);
+        println!("Run {}: {:.10} milliseconds", i + 1, ai_time);
     }
 
     if my_total_time > ai_total_time {
