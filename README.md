@@ -4,13 +4,13 @@ You ever think ChatGPT has no idea what it's talking about?
 
 This repository contains a collection of templates that allow you to compare the execution speed of two functions: a user-defined function and an AI-generated function. The templates are provided in different programming languages and can be used to measure and compare the performance of the functions.
 
-Mild care has been taken to keep these templates as simple as possible, using only standard libraries and such.
+Some care has been taken to keep these templates as simple as possible and to only utilize standard libraries.
 
 ## Templates
 
 Currently, there are templates for these languages:
 
-- Python
+- Python (2 and 3)
 - C#
 - JavaScript
 - Java
